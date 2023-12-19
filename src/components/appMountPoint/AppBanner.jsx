@@ -20,8 +20,8 @@ const AppBanner = ({ slides }) => {
                     </figure>
                 )
             })}
-            <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
-            <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
+            {/* <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
+            <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} /> */}
             <div className="BannerContent">
                 <Header />
                 <div className="Content_inner">
