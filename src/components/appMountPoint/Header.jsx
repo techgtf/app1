@@ -5,9 +5,7 @@ import Login from "../Login";
 const Header = () => {
 
     const [loggedIn, setloggedIn] = useState(false);
-    const OpnLoginBox = () => {
-        setloggedIn(true)
-    }
+    const OpnLoginBox = () => setloggedIn(true)
 
     return (
         <>

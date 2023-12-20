@@ -1,17 +1,28 @@
-import { useState } from "react"
+import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
+import { useNavigate } from "react-router";
 
 const Login = ({ loggedIn }) => {
-    const [errorEmail, setErrorEmail] = useState(false);
-    const [errorPass, setErrorPass] = useState(false);
-    const [formdata, setFormData] = useState({
-        email: 'admin', password: 'admin'
+
+    const [formdata, setFromData] = useState({
+        email: '', password: ''
     })
-    const HndlLogin = () => {        
-        if (formdata.email === '') setErrorEmail(true)
-        if (formdata.password === '') setErrorPass(true)
+
+    const hndlChange = (e) => {
+        const { name, value } = e.target;
+        setFromData((prevData) => ({ ...prevData, [name]: value }));
     }
 
+    const Navigate = useNavigate()
+
+    const HndlLogin = () => {
+        if (!formdata.email || !formdata.password) {
+            alert('Please Enter Valid Email and Password');
+            return;
+        }
+        if (formdata.email === "admin" || formdata.password === "admin") Navigate('/movieslist');
+        else alert('wrong')
+    }
     const hndlClose = () => loggedIn(false)
 
     return (
@@ -21,16 +32,18 @@ const Login = ({ loggedIn }) => {
             <div className="login-inputbox">
                 <input
                     type="email"
-                    placeholder="Enter Email Address"                    
+                    name="email"
+                    placeholder="Enter Email Address"
+                    onChange={hndlChange}
                 />
-                {errorEmail ? <span style={{color:'#000'}}>Enter Valid Email Address</span> : ''}
             </div>
             <div className="login-inputbox">
                 <input
                     type="text"
+                    name="password"
                     placeholder="Enter Password"
+                    onChange={hndlChange}
                 />
-                {errorPass ? <span style={{color:'#000'}}>Enter Valid Password</span> : ''}
             </div>
             <button
                 className="btn"
