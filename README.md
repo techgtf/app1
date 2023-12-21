@@ -68,3 +68,82 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+To save login details in localStorage and retrieve them, you can modify your HndlLogin function to save the details upon successful login. Additionally, you can create a function to check if the user is already logged in based on the stored credentials. Here's an updated version of your Login component:
+
+jsx
+Copy code
+import React, { useState } from "react";
+import { IoMdClose } from "react-icons/io";
+import { useNavigate } from "react-router";
+
+const Login = ({ loggedIn }) => {
+    const [formdata, setFromData] = useState({
+        email: "",
+        password: "",
+    });
+
+    const hndlChange = (e) => {
+        const { name, value } = e.target;
+        setFromData((prevData) => ({ ...prevData, [name]: value }));
+    };
+
+    const Navigate = useNavigate();
+
+    const HndlLogin = () => {
+        if (!formdata.email || !formdata.password) {
+            alert("Please Enter Valid Email and Password");
+            return;
+        }
+
+        // You may want to replace the following condition with actual authentication logic
+        if (formdata.email === "admin" && formdata.password === "admin") {
+            // Save login details in localStorage
+            localStorage.setItem("email", formdata.email);
+            localStorage.setItem("password", formdata.password);
+
+            // Navigate to the desired page
+            Navigate("/movieslist");
+        } else {
+            alert("Wrong credentials");
+        }
+    };
+
+    const hndlClose = () => loggedIn(false);
+
+    return (
+        <div className="Login">
+            <button className="closebtn" onClick={hndlClose}>
+                <IoMdClose />
+            </button>
+            <div className="heading">Sign In</div>
+            <div className="login-inputbox">
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter Email Address"
+                    onChange={hndlChange}
+                />
+            </div>
+            <div className="login-inputbox">
+                <input
+                    type="password" {/* Change the type to "password" */}
+                    name="password"
+                    placeholder="Enter Password"
+                    onChange={hndlChange}
+                />
+            </div>
+            <button
+                className="btn"
+                style={{ textAlign: "center" }}
+                onClick={HndlLogin}
+            >
+                Sign In
+            </button>
+        </div>
+    );
+};
+
+export default Login;
+Note that storing passwords in plain text in localStorage is not secure. In a real-world application, you should use secure methods such as token-based authentication or session management with server-side validation. The provided example is for educational purposes and should not be used as-is in a production environment.

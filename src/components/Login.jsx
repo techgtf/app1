@@ -17,12 +17,18 @@ const Login = ({ loggedIn }) => {
 
     const HndlLogin = () => {
         if (!formdata.email || !formdata.password) {
-            alert('Please Enter Valid Email and Password');
+            alert("Please Enter Valid Email and Password");
             return;
         }
-        if (formdata.email === "admin" || formdata.password === "admin") Navigate('/movieslist');
-        else alert('wrong')
-    }
+        
+        if (formdata.email === "admin" && formdata.password === "admin") {            
+            localStorage.setItem("email", formdata.email);
+            localStorage.setItem("password", formdata.password);
+            Navigate("/movieslist");
+        } else {
+            alert("Wrong credentials");
+        }
+    };
     const hndlClose = () => loggedIn(false)
 
     return (
