@@ -1,7 +1,12 @@
+import { Link } from "react-router-dom";
+import { img_404 } from "./staticImages";
+import { IoPlaySkipBack } from "react-icons/io5";
+
 const ErrPage = () => {
     return (
-        <div className="404PAge" style={{ textAlign: 'center' }}>
-            <div className="404text" style={{ fontSize: '48px' }}>404</div>
+        <div className="Page404" style={{ textAlign: 'center' }}>
+            <img src={img_404} alt="" />
+            <Link className="btn" to={'/'}><IoPlaySkipBack /> Go Back</Link>
         </div>
     )
 }
