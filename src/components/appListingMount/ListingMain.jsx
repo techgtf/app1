@@ -1,8 +1,15 @@
+import { SliderImages } from "../SliderImages";
+import Slider from "../commonSlider";
+import HndlPrintMovies from "./printMovies";
+
 
 const ListingMain = () => {
-
     return (
-        <h1>Listing Page</h1>
+        <>
+            <Slider slides={SliderImages} />
+            <h1>Listing Page</h1>
+            <HndlPrintMovies />
+        </>
     )
 }
 

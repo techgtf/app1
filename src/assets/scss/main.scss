@@ -30,8 +30,8 @@ $transition: all 0.4s ease-in-out;
 .logo img{width: 180px;}
 
 
-// .AppBanner
-.AppBanner{position: relative; display: flex;justify-content: center;align-items: center; width: 100%; margin: 0 auto;
+// .CommonSlider
+.CommonSlider{position: relative; width: 100%; margin: 0 auto;
     .sliderimg {transition-duration: 1s ease; opacity: 0; visibility: hidden; display: none; width: 100%;
         &.active {transition-duration: 1s;transform: scale(1); opacity: 1; visibility: visible; display: block; }
         &::after{content: ''; position: absolute; left: 0; right: 0; top: 0; bottom: 0; height: 100%; width: 100%; background: #000; opacity: 77%;}
@@ -41,6 +41,10 @@ $transition: all 0.4s ease-in-out;
         &:hover{color: $color_4;}
     }
     .left-arrow {right: inherit; left: 32px;}    
+}
+
+.AppBanner{position: relative; display: flex;justify-content: center;align-items: center; width: 100%; margin: 0 auto;
+    .right-arrow, .left-arrow{display: none;}
 }
 
 // .BannerContent
