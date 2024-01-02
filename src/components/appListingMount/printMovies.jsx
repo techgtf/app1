@@ -7,7 +7,7 @@ const HndlPrintMovies = ({ getData }) => {
     return (
         <div className="AllMovies">
             {data?.map((data, index) => {
-
+                
             })}
         </div>
     )

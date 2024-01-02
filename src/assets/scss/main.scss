@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap');
 @import url(../scss/reset.scss);
 
+
 $color_1: #010101;
 $color_2: #000031;
 $color_3: #fff;
@@ -22,10 +23,11 @@ $transition: all 0.4s ease-in-out;
 .btn{padding: 5px 15px; border-radius: 8px; background: $color_4; color: $color_3; transition: $transition; cursor: pointer;
     &:hover{background: $color_5;}
 }
+.customfixed{position: fixed; left: 0; right: 0; width: 100%; z-index: 1;}
+.conatainerFluid{width: 100%; padding: 0 15px;}
 
-
-// .AppHeader
-.AppHeader{padding: 0 15px; margin-bottom: 120px;}
+// .LoginHeader
+.LoginHeader{padding: 0 15px; margin-bottom: 120px;}
 .headerbtns{padding: 8px 16px;}
 .logo img{width: 180px;}
 
@@ -42,6 +44,7 @@ $transition: all 0.4s ease-in-out;
     }
     .left-arrow {right: inherit; left: 32px;}    
 }
+
 
 .AppBanner{position: relative; display: flex;justify-content: center;align-items: center; width: 100%; margin: 0 auto;
     .right-arrow, .left-arrow{display: none;}
@@ -77,4 +80,18 @@ $transition: all 0.4s ease-in-out;
 .Page404{display: flex; justify-content: center; align-items: center; height: 100vh; width: 100vh; margin: 0 auto; position: relative;
     .innerdiv{padding: 200px;}
     .btn{position: absolute; top: 73%; left: 50%; transform: translate(0,-50%); padding: 12px 25px; font-size: 18px;}
+}
+
+
+// listing css
+
+.appHeader{background: $color_1; opacity: 60%;
+    .logo img{width: 200px;}
+    .navItem{
+        li{margin-left: 30px;}
+    }
+    .navlink{color: $color_3;}
+    .userProfile{color: $color_3;}
+    .profileIcon{font-size: 35px; color: $color_3;}
+    .drpUser{display: none;}
 }

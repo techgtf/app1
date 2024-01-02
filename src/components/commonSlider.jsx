@@ -10,7 +10,6 @@ const HandlSlider = ({ slides }) => {
     const prevSlide = () => setCurrent(current === 0 ? length - 1 : current - 1);
     if (!Array.isArray(slides) || slides.length <= 0) return null;
 
-
     return (
         <div className="CommonSlider">
             {SliderImages?.map((data, index) => {

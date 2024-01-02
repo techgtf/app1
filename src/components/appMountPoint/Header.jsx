@@ -9,7 +9,7 @@ const Header = () => {
 
     return (
         <>
-            <header className="AppHeader">
+            <header className="LoginHeader">
                 <div className="headerflex dflex contentBetween itemsCenter">
                     <Link to={'/'} className="logo">
                         <img src={LogoSvg} alt={LogoSvg} />
